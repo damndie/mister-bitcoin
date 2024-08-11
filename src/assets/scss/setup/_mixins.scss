@@ -1,0 +1,20 @@
+@import "../../../assets/scss/setup/vars";
+
+@mixin for-normal-layout {
+  @media (max-width: $break-normal) {
+    @content;
+  }
+}
+
+@mixin fullPage {
+  min-height: calc(100dvh - $app-header-height);
+  width: 100vw;
+}
+
+@mixin input {
+  padding: 1rem;
+  padding-inline-start: 1.2em;
+  border: none;
+
+  font-size: 1.6em;
+}
