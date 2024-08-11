@@ -8,13 +8,23 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { ContactDetailsPageComponent } from './pages/contact-details-page/contact-details-page.component';
 import { StatisticPageComponent } from './pages/statistic-page/statistic-page.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { ContactPreviewComponent } from './components/contact-preview/contact-preview.component';
+import { ContactFilterComponent } from './components/contact-filter/contact-filter.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ContactPageComponent,
     ContactDetailsPageComponent,
-    StatisticPageComponent
+    StatisticPageComponent,
+    ContactListComponent,
+    ContactPreviewComponent,
+    ContactFilterComponent,
+    ChartComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
