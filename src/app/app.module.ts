@@ -13,6 +13,7 @@ import { ContactPreviewComponent } from './components/contact-preview/contact-pr
 import { ContactFilterComponent } from './components/contact-filter/contact-filter.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
+import { AgCharts } from 'ag-charts-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AgCharts,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

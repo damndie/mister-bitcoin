@@ -1,1 +1,26 @@
-<p>statistic-page works!</p>
+<section class="statistic-page">
+    <h1 class="main-heading">Bitcoin statistics</h1>
+  
+    <div class="charts-container flex">
+      <div *ngIf="marketValues" class="chart-container flex justify-center">
+        <chart
+          [data]="marketValues"
+          [chartTitle]="'Market Price (USD)'"
+          [subTitle]="'Average USD market price across major bitcoin exchanges.'"
+        ></chart>
+      </div>
+  
+      <div
+        *ngIf="confirmedTransactions"
+        class="chart-container flex justify-center"
+      >
+        <chart
+          [data]="confirmedTransactions"
+          [chartTitle]="'Confirmed Transactions'"
+          [subTitle]="
+            'The total USD value of trading volume on major bitcoin exchanges.'
+          "
+        ></chart>
+      </div>
+    </div>
+  </section>

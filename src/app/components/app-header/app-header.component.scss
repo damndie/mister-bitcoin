@@ -1,0 +1,30 @@
+@import "../../../assets/scss/setup/vars";
+
+.app-header {
+  height: $app-header-height;
+  padding-inline: 2em;
+
+  .main-heading {
+    font-size: 2.8em;
+
+    span {
+      color: $active-link-clr;
+    }
+  }
+
+  .main-nav {
+    .main-nav-list {
+      gap: 1.5em;
+
+      .nav-link {
+        font-size: 1.6em;
+        cursor: pointer;
+
+        &.active {
+          font-weight: bold;
+          color: $active-link-clr;
+        }
+      }
+    }
+  }
+}

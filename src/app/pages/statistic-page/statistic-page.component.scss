@@ -1,0 +1,21 @@
+@import "../../../assets/scss/setup/mixins";
+@import "../../../assets/scss/setup/vars";
+
+.statistic-page {
+  @include fullPage;
+  background-color: $statistic-page-bg-clr;
+
+  .main-heading {
+    padding-block-start: 3rem;
+    text-align: center;
+    font-size: 3.2em;
+  }
+
+  .charts-container {
+    justify-content: space-around;
+
+    @include for-normal-layout {
+      flex-direction: column;
+    }
+  }
+}
