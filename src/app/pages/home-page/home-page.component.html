@@ -1,0 +1,19 @@
+<section class="home-page flex">
+    <div class="flex column align-center justify-center">
+        <div class="user-container flex align-center">
+            <h3 class="user-greet">
+                Hello, <span>{{ user.fullName }}</span>
+            </h3>
+        </div>
+
+        <p class="balance">
+            💰 Your balance: <span>{{ user.coins }}</span>
+        </p>
+
+        <p *ngIf="rate" class="rate">
+            📈 Current bitcoin rate: <span>{{ rate }}</span>
+        </p>
+
+    </div>
+
+</section>

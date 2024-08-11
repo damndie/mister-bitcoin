@@ -1,0 +1,53 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.home-page {
+  @include fullPage;
+  background-color: $homepage-bg-clr;
+  justify-content: space-around;
+
+  @include for-normal-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-container {
+    gap: 2em;
+    margin-block-end: 2em;
+
+    .user-greet {
+      font-size: 3.6em;
+    }
+
+    .btn-logout {
+      padding: 0.7em 1.4em;
+      border-radius: 8px;
+
+      font-family: FigtreeBold;
+      color: $main-bg-clr;
+      background-color: $active-link-clr;
+    }
+  }
+
+  p {
+    font-size: 2.4em;
+    font-family: FigtreeBold;
+
+    &.balance {
+      margin-block-end: 1rem;
+    }
+
+    > span {
+      font-family: $main-font-family;
+    }
+  }
+
+  .hero-img {
+    width: 50vw;
+    object-fit: contain;
+
+    @include for-normal-layout {
+      width: 80vw;
+    }
+  }
+}
