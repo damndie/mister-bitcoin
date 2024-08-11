@@ -14,6 +14,7 @@ import { ContactFilterComponent } from './components/contact-filter/contact-filt
 import { ChartComponent } from './components/chart/chart.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AgCharts } from 'ag-charts-angular';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { AgCharts } from 'ag-charts-angular';
     BrowserModule,
     AppRoutingModule,
     AgCharts,
+    FormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

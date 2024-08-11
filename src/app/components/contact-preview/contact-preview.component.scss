@@ -1,0 +1,73 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+
+    width: 60vw;
+    padding-block: 1em;
+    padding-inline-start: 2em;
+    border-radius: 2em;
+
+    background-color: $contact-bg-clr;
+    cursor: pointer;
+
+    &:hover {
+        .actions-container {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .contact-details {
+        gap: 1em;
+
+        .contact-name {
+            font-size: 1.8em;
+        }
+
+        .contact-img {
+            width: 30px;
+        }
+    }
+
+    .actions-container {
+        gap: 1em;
+        margin-inline-end: 1.5em;
+
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.4s;
+
+        .btn {
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.4em;
+
+            &::after {
+                font-family: faSolid;
+                font-style: 1rem;
+            }
+
+            &.btn-edit {
+                background-color: $btn-go-back-clr;
+
+                &::after {
+                    content: "\f4ff";
+                }
+            }
+
+            &.btn-delete {
+                background-color: $btn-delete-clr;
+
+                &::after {
+                    content: "\f1f8";
+                }
+            }
+        }
+    }
+}

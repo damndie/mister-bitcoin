@@ -1,1 +1,18 @@
-<p>contact-preview works!</p>
+<div class="contact-details flex align-center">
+    <img
+      src="https://robohash.org/{{ contact._id }}?set=set4"
+      alt="Contact picture"
+      class="contact-img"
+    />
+    <p class="contact-name">{{ contact.name }}</p>
+  </div>
+  
+  <div class="actions-container flex align-center">
+    <button
+      class="btn btn-edit flex align-center justify-center"
+    ></button>
+    <button
+      class="btn btn-delete flex align-center justify-center"
+      (click)="onRemoveContact($event, contact._id)"
+    ></button>
+  </div>

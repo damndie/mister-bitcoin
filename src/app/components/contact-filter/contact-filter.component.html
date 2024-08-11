@@ -1,1 +1,12 @@
-<p>contact-filter works!</p>
+<section class="contact-filter flex">
+    <input
+    [(ngModel)]="filterBy.term"
+    (ngModelChange)="onSetFilterBy($event)"
+    name="term"
+    type="text"
+    placeholder="Search"
+    class="filter-input"
+    />
+  
+    <button class="btn-add-contact"></button>
+  </section>

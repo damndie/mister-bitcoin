@@ -1,0 +1,15 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.contact-page {
+    @include fullPage;
+
+    background-color: $contact-page-bg-clr;
+    padding-block: 3rem;
+
+    .main-heading {
+        font-size: 3em;
+        margin-block-end: 1.5rem;
+        font-family: FigtreeBold;
+    }
+}

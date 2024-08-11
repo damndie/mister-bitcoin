@@ -1,0 +1,29 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.contact-filter {
+    margin-block-end: 2em;
+    gap: 1em;
+    position: relative;
+
+    .filter-input {
+        @include input;
+        width: 60vw;
+        border-radius: 16px;
+    }
+
+    .btn-add-contact {
+        position: absolute;
+        right: -4em;
+        height: 100%;
+        padding-inline: 1em;
+        border-radius: 16px;
+        background-color: $active-link-clr;
+
+        &::after {
+            font-family: faSolid;
+            content: "\f234";
+            color: $main-bg-clr;
+        }
+    }
+}

@@ -1,1 +1,7 @@
-<p>contact-page works!</p>
+<section class="contact-page">
+    <div class="main-contacts flex column align-center">
+        <h1 class="main-heading">Your Contacts</h1>
+        <contact-filter></contact-filter>
+        <contact-list [contacts]="contacts$ | async"></contact-list>
+    </div>
+</section>
