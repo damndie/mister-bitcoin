@@ -13,9 +13,5 @@
 
   .charts-container {
     justify-content: space-around;
-
-    @media (max-width: 1600px) {
-      flex-direction: column;
-    }
   }
 }
