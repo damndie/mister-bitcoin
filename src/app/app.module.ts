@@ -13,7 +13,6 @@ import { ContactPreviewComponent } from './components/contact-preview/contact-pr
 import { ContactFilterComponent } from './components/contact-filter/contact-filter.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
-import { AgCharts } from 'ag-charts-angular';
 import { FormsModule } from '@angular/forms';
 import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -34,7 +33,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AgCharts,
     FormsModule,
     NgxChartsModule
   ],
