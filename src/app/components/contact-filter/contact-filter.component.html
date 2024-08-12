@@ -1,12 +1,12 @@
 <section class="contact-filter flex">
-    <input
-    [(ngModel)]="filterBy.term"
-    (ngModelChange)="onSetFilterBy($event)"
+  <input
     name="term"
     type="text"
-    placeholder="Search"
+    placeholder="Search contact"
     class="filter-input"
-    />
-  
-    <button class="btn-add-contact"></button>
-  </section>
+    [(ngModel)]="filterBy.term"
+    (ngModelChange)="onSetFilterBy($event)"
+  />
+
+  <button routerLink="/contact/edit" class="btn-add-contact"></button>
+</section>

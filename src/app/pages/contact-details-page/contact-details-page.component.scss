@@ -1,0 +1,58 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.contact-details {
+  @include fullPage;
+  background-color: $contact-page-bg-clr;
+
+  .btn-container {
+    width: 40vw;
+    margin-block-start: 2em;
+
+    .btn {
+      padding: 1.6rem;
+      border-radius: 2rem;
+
+      font-size: 1.6em;
+      background-color: $btn-go-back-clr;
+
+      &::after {
+        font-family: faSolid;
+      }
+
+      &.btn-go-back::after {
+        content: "\f060";
+      }
+
+      &.btn-edit-contact::after {
+        content: "\f4ff";
+      }
+
+      &:hover {
+        background-color: darken($btn-go-back-clr, 10%);
+      }
+    }
+  }
+
+  .main-details {
+    gap: 1em;
+    margin-block-end: 3em;
+
+    .contact-name {
+      font-size: 3.2em;
+    }
+
+    > *:not(.contact-name) {
+      font-size: 1.8em;
+    }
+
+    .contact-img {
+      margin-block-start: 1.5em;
+    }
+  }
+
+  .funds-container {
+    width: 50vw;
+    margin: auto;
+  }
+}

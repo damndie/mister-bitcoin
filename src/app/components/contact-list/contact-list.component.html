@@ -1,6 +1,7 @@
 <ul *ngIf="contacts?.length" class="contact-list flex column clean-list">
     <li *ngFor="let contact of contacts">
       <contact-preview
+        routerLink="/contact/{{ contact._id }}"
         [contact]="contact"
       ></contact-preview>
     </li>

@@ -1,1 +1,36 @@
-<p>contact-details-page works!</p>
+<section class="contact-details">
+    <div *ngIf="contact$ | async as contact" class="contact-details">
+      <div class="main-details flex column align-center">
+        <div class="btn-container flex justify-between">
+          <button
+            routerLink="/contact"
+            class="btn btn-go-back flex align-center justify-center"
+            title="Back to list"
+          ></button>
+  
+          <button
+            routerLink="/contact/edit/{{ contact._id }}"
+            class="btn btn-edit-contact flex align-center justify-center"
+            title="Edit contact"
+          ></button>
+        </div>
+  
+        <h3 class="contact-name">{{ contact.name }}</h3>
+        <p class="contact-phone">
+          Phone number: <span> {{ contact.phone }}</span>
+        </p>
+        <p class="contact-email">
+          Email address:
+          <span>
+            {{ contact.email }}
+          </span>
+        </p>
+  
+        <img
+          src="https://robohash.org/{{ contact._id }}?set=set2"
+          alt="Contact picture"
+          class="contact-img"
+        />
+      </div>
+    </div>
+  </section>
