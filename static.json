@@ -1,5 +1,5 @@
 {
-    "root": "dist/YOUR_PROJECT_NAME/",
+    "root": "dist/mister-bitcoin/",
     "cleanUrls": false,
     "rewrites": [
         {
