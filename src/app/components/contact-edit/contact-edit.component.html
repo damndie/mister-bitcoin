@@ -1,0 +1,34 @@
+<section class="contact-edit flex column align-center">
+    <h2 class="main-heading">{{ contact._id ? "Edit" : "Add" }} Contact</h2>
+
+    <form #editForm="ngForm" (ngSubmit)="onSaveContact()" class="flex column">
+        <div class="input-container flex column">
+            <label for="name" class="edit-label">Name</label>
+            <input [(ngModel)]="contact.name" type="text" name="name" id="name" class="edit-input"
+                placeholder="Enter name" required #name="ngModel" />
+        </div>
+
+        <div class="input-container flex column">
+            <label for="email" class="edit-label">Email address</label>
+            <input [(ngModel)]="contact.email" type="email" name="email" id="email" class="edit-input"
+                placeholder="Enter email" required #email="ngModel" />
+        </div>
+
+        <div class="input-container flex column">
+            <label for="phone" class="edit-label">Phone number</label>
+            <input [(ngModel)]="contact.phone" type="tel" name="phone" id="phone" class="edit-input"
+                placeholder="Enter phone" required #phone="ngModel" />
+        </div>
+
+        <section class="actions-container flex justify-center">
+            <button routerLink="/contact/{{ contact._id }}" class="btn" type="button">
+                Back
+            </button>
+            <button *ngIf="contact._id" class="btn btn-action btn-delete-contact" type="button"
+                (click)="onRemoveContact(contact._id)"></button>
+            <button class="btn btn-action btn-submit" [disabled]="editForm.invalid">
+                Save
+            </button>
+        </section>
+    </form>
+</section>

@@ -1,0 +1,66 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.contact-edit {
+  @include fullPage;
+
+  gap: 3em;
+  background-color: $contact-page-bg-clr;
+  padding-block-start: 3em;
+
+  .main-heading {
+    font-size: 3.2em;
+  }
+
+  form {
+    width: 30vw;
+    gap: 1.5em;
+
+    .input-container {
+      gap: 0.5em;
+
+      .edit-label {
+        font-size: 1.6em;
+      }
+
+      .edit-input {
+        @include input;
+        border-radius: 0px 20px 20px 0px;
+      }
+    }
+  }
+
+  .actions-container {
+    gap: 2em;
+    margin-block-start: 2em;
+
+    .btn {
+      padding: 0.7em 1.4em;
+      border-radius: 16px;
+      font-size: 1.6em;
+
+      &.btn-action {
+        &.btn-submit {
+          font-family: FigtreeBold, sans-serif;
+          background-color: $active-link-clr;
+          color: $main-bg-clr;
+
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+
+        &.btn-delete-contact {
+          background-color: $btn-delete-clr;
+          color: $main-bg-clr;
+
+          &::after {
+            font-family: faSolid;
+            content: "\f1f8";
+          }
+        }
+      }
+    }
+  }
+}

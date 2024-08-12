@@ -15,6 +15,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AgCharts } from 'ag-charts-angular';
 import { FormsModule } from '@angular/forms';
+import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     ContactPreviewComponent,
     ContactFilterComponent,
     ChartComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
