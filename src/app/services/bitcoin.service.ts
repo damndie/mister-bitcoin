@@ -1,59 +1,33 @@
-import axios from 'axios';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core'
-
-const MARKET_VALUE_KEY = 'marketValueDB'
-const TRANSACTIONS_KEY = 'transactionsDB'
-
+import { Injectable } from '@angular/core';
+import { map, of } from 'rxjs';
+import { storageServiceBitCoin } from './storage.service';
 @Injectable({
     providedIn: 'root'
 })
 export class BitcoinService {
-    constructor(private http: HttpClient) {
-        const marketValues = JSON.parse(localStorage.getItem(MARKET_VALUE_KEY) || 'null')
-        if (!marketValues || marketValues.length === 0) this._saveMarketValues()
 
-        const confirmedTransactions = JSON.parse(localStorage.getItem(TRANSACTIONS_KEY) || 'null')
-        if (!confirmedTransactions || confirmedTransactions.length === 0) this._saveConfirmedTransactions()
+
+    TRADE_VOLUME_KEY = 'tradeVolume'
+
+    constructor(private http: HttpClient) { }
+    
+    getRate(coins: number) {
+        return this.http.get<string>(`https://blockchain.info/tobtc?currency=USD&value=${coins}`)
     }
 
-    public getRate(coins: number) {
-        return axios.get(`https://blockchain.info/tobtc?currency=USD&value=${coins}`)
-    }
 
-    public async getMarketPrice() {
-        const marketValues = JSON.parse(localStorage.getItem(MARKET_VALUE_KEY) || 'null')
+    getTradeVolume() {
+        const data = storageServiceBitCoin.load(this.TRADE_VOLUME_KEY)
+        // console.log('data service', data);
 
-        if (marketValues && marketValues.length) {
-            console.log('MARKET PRICE FROM CACHE')
-            return Promise.resolve(marketValues)
-        }
-
-        const res = await axios.get('https://api.blockchain.info/charts/market-price?timespan=1months&format=json&cors=true')
-        const { values } = res.data
-        return values
-    }
-
-    public async getConfirmedTransactions() {
-        const confirmedTransactions = JSON.parse(localStorage.getItem(TRANSACTIONS_KEY) || 'null')
-
-        if (confirmedTransactions && confirmedTransactions.length) {
-            console.log('TRANSACTIONS FROM CACHE')
-            return Promise.resolve(confirmedTransactions)
-        }
-
-        const res = await axios.get('https://api.blockchain.info/charts/trade-volume?timespan=1months&format=json&cors=true')
-        const { values } = res.data
-        return values
-    }
-
-    private async _saveMarketValues(): Promise<void> {
-        const marketValues = await this.getMarketPrice()
-        localStorage.setItem(MARKET_VALUE_KEY, JSON.stringify(marketValues))
-    }
-
-    private async _saveConfirmedTransactions(): Promise<void> {
-        const confirmedTransactions = await this.getConfirmedTransactions()
-        localStorage.setItem(TRANSACTIONS_KEY, JSON.stringify(confirmedTransactions))
+        if (data) return of(data)
+            return this.http.get<{ values: [{ x: number, y: number }] }>(`https://api.blockchain.info/charts/trade-volume?timespan=5months&format=json&cors=true`)
+            .pipe(map(res => {
+                //prepare the data in a way that the chart can render
+                const vals = res.values.map(item => { return { name: new Date(item.x * 1000).toLocaleDateString("en-US"), value: item.y } })
+                storageServiceBitCoin.store(this.TRADE_VOLUME_KEY, vals)
+                return vals
+            }))
     }
 }

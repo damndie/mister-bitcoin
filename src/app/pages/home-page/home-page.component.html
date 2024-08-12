@@ -7,11 +7,11 @@
         </div>
 
         <p class="balance">
-            💰 Your balance: <span>{{ user.coins }}</span>
+            💰 Your balance: <span>{{ user.coins | json }}</span>
         </p>
 
-        <p *ngIf="rate" class="rate">
-            📈 Current bitcoin rate: <span>{{ rate }}</span>
+        <p class="rate">
+            📈 Current bitcoin rate: <span>{{ BTC$ | async }}</span>
         </p>
 
     </div>

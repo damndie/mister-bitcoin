@@ -17,11 +17,7 @@ export class StatisticPageComponent implements OnInit{
 
   async ngOnInit(): Promise<void> {
     try {
-      const marketValues = await this.bitcoinService.getMarketPrice()
-      this.marketValues = marketValues
-
-      const confirmedTransactions = await this.bitcoinService.getConfirmedTransactions()
-      this.confirmedTransactions = confirmedTransactions
+      
     }
     catch (err) {
       console.log('Statistic page -> Had issues loading statistic', err)

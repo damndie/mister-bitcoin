@@ -16,6 +16,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
 import { AgCharts } from 'ag-charts-angular';
 import { FormsModule } from '@angular/forms';
 import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { ContactEditComponent } from './components/contact-edit/contact-edit.com
     BrowserModule,
     AppRoutingModule,
     AgCharts,
-    FormsModule
+    FormsModule,
+    NgxChartsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
