@@ -1,0 +1,10 @@
+{
+    "root": "dist/YOUR_PROJECT_NAME/",
+    "cleanUrls": false,
+    "rewrites": [
+        {
+            "source": "**",
+            "destination": "/index.html"
+        }
+    ]
+}
