@@ -13,6 +13,11 @@ export class ContactPreviewComponent {
   private contactService = inject(ContactService)
   @Input() contact!: Contact
 
+  onEditContact(ev: MouseEvent) {
+    ev.stopPropagation()
+    
+  }
+
   onRemoveContact(ev: MouseEvent, contactId: string) {
     ev.stopPropagation()
 

@@ -9,6 +9,7 @@
 
 <div class="actions-container flex align-center">
   <button
+  (click)="onEditContact($event)"
     routerLink="/contact/edit/{{ contact._id }}"
     class="btn btn-edit flex align-center justify-center"
   ></button>

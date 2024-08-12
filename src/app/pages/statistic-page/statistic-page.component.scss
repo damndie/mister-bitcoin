@@ -14,7 +14,7 @@
   .charts-container {
     justify-content: space-around;
 
-    @include for-normal-layout {
+    @media (max-width: 1600px) {
       flex-direction: column;
     }
   }
