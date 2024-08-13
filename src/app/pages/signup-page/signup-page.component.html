@@ -1,0 +1,23 @@
+<section class="signup-page flex column align-center">
+    <img src="/assets/img/bitcoin.png" alt="Bitcoin icon" class="signup-img" />
+    <h1 class="main-heading">Welcome to Mister <span>BIT</span>coin</h1>
+  
+    <form
+      #signupForm="ngForm"
+      (ngSubmit)="onSignup()"
+      class="flex column align-center"
+    >
+      <label for="name">Please enter your name. 😊</label>
+      <input
+        [(ngModel)]="username"
+        #name="ngModel"
+        type="text"
+        name="name"
+        id="name"
+        autocomplete="off"
+        required
+      />
+  
+      <button class="btn-submit" [disabled]="signupForm.invalid">Submit</button>
+    </form>
+  </section>

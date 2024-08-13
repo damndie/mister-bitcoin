@@ -1,4 +1,4 @@
-export interface MoveModel {
+export interface Move {
     toId: string
     to: string
     at: number

@@ -1,0 +1,56 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.signup-page {
+    @include fullPage;
+    background-color: $signup-page-bg-clr;
+
+    .signup-img {
+        width: 15vw;
+        margin-block: 5em;
+    }
+
+    .main-heading {
+        margin-block-end: 2rem;
+
+        font-size: 4.8em;
+        font-family: FigtreeBold;
+
+        span {
+            color: $active-link-clr;
+        }
+    }
+
+    form {
+        width: 40vw;
+
+        label {
+            margin-block-end: 1rem;
+            font-size: 2em;
+        }
+
+        input {
+            @include input;
+            width: 100%;
+            margin-block-end: 2rem;
+        }
+
+        .btn-submit {
+            padding: 1.5rem 3rem;
+            border-radius: 2rem;
+
+            font-size: 1.8em;
+            color: $main-bg-clr;
+            background-color: $active-link-clr;
+
+            &:hover {
+                background-color: darken($active-link-clr, 10%);
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

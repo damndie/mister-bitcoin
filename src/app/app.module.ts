@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FilterArrPipe } from './pipes/filter-arr.pipe';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { FilterArrPipe } from './pipes/filter-arr.pipe';
     ChartComponent,
     AppHeaderComponent,
     ContactEditComponent,
-    FilterArrPipe
+    FilterArrPipe,
+    SignupPageComponent
   ],
   imports: [
     BrowserModule,
