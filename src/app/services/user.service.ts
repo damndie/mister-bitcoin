@@ -39,19 +39,27 @@ export class UserService {
   }
 
   public signup(name: string) {
-    const userToSave = this._getEmptyUser()
-    userToSave.fullName = name
+    const existingUser = this._users$.value.find(user => user.fullName === name)
 
-    return from(storageService.post(ENTITY, userToSave))
-      .pipe(
-        tap(newUser => {
-          const users = this._users$.value
-          this._users$.next([...users, newUser])
-          this._setLoggedInUser(newUser)
-        }),
-        retry(1),
-        catchError(this._handleError)
-      )
+    if (existingUser) {
+      this._setLoggedInUser(existingUser)
+      return from(Promise.resolve(existingUser))
+
+    } else {
+      const userToSave = this._getEmptyUser()
+      userToSave.fullName = name
+
+      return from(storageService.post(ENTITY, userToSave))
+        .pipe(
+          tap(newUser => {
+            const users = this._users$.value
+            this._users$.next([...users, newUser])
+            this._setLoggedInUser(newUser)
+          }),
+          retry(1),
+          catchError(this._handleError)
+        )
+    }
   }
 
   public logout() {
@@ -96,9 +104,8 @@ export class UserService {
   }
 
   private _createUsers() {
-    const user1: User = { _id: 'u123', fullName: 'Daniel Vinitsky', coins: 100, moves: [] }
-    const user2: User = { _id: 'u124', fullName: 'Daniel2', coins: 100, moves: [] }
+    const user1: User = { _id: 'u123', fullName: '', coins: 100, moves: [] }
 
-    return [user1, user2]
+    return [user1]
   }
 }
