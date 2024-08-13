@@ -33,10 +33,6 @@ export class HomePageComponent implements OnInit {
     this.updateBitcoinRate()
   }
 
-  shouldShowRefillButton(): boolean {
-    return this.user.coins === 0
-  }
-
   private updateBitcoinRate() {
     this.BTC$ = this.bitcoinService.getRate(this.user.coins)
   }

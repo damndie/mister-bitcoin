@@ -39,42 +39,48 @@ export class UserService {
   }
 
   public updateUser(updatedUser: User) {
-    
+
     const users = this._users$.value.map(user =>
       user._id === updatedUser._id ? updatedUser : user
     )
-    
+
     this._users$.next(users)
-    
+
     localStorage.setItem(ENTITY, JSON.stringify(users))
-    
+
     if (this._loggedInUser._id === updatedUser._id) {
       this._setLoggedInUser(updatedUser)
     }
   }
 
   public signup(name: string) {
-    const existingUser = this._users$.value.find(user => user.fullName === name)
+    return from(storageService.query<User>(ENTITY)).pipe(
+      tap(users => {
+        this._users$.next(users)
+        const existingUser = users.find(user => user.fullName === name)
 
-    if (existingUser) {
-      this._setLoggedInUser(existingUser)
-      return from(Promise.resolve(existingUser))
+        if (existingUser) {
+          this._setLoggedInUser(existingUser)
+          return existingUser
 
-    } else {
-      const userToSave = this._getEmptyUser()
-      userToSave.fullName = name
+        } else {
+          const userToSave = this._getEmptyUser()
+          userToSave.fullName = name
 
-      return from(storageService.post(ENTITY, userToSave))
-        .pipe(
-          tap(newUser => {
-            const users = this._users$.value
-            this._users$.next([...users, newUser])
-            this._setLoggedInUser(newUser)
-          }),
-          retry(1),
-          catchError(this._handleError)
-        )
-    }
+          return from(storageService.post(ENTITY, userToSave)).pipe(
+            tap(newUser => {
+              const updatedUsers = [...users, newUser]
+              this._users$.next(updatedUsers)
+              this._setLoggedInUser(newUser)
+              return newUser
+            }),
+            retry(1),
+            catchError(this._handleError)
+          )
+        }
+      }),
+      catchError(this._handleError)
+    )
   }
 
   public logout() {
