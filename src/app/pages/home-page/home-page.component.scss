@@ -41,13 +41,4 @@
       font-family: $main-font-family;
     }
   }
-
-  .hero-img {
-    width: 50vw;
-    object-fit: contain;
-
-    @include for-normal-layout {
-      width: 80vw;
-    }
-  }
 }

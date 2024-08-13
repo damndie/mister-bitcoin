@@ -18,6 +18,9 @@ import { ContactEditComponent } from './components/contact-edit/contact-edit.com
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FilterArrPipe } from './pipes/filter-arr.pipe';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { MoveListComponent } from './components/move-list/move-list.component';
+import { MovePreviewComponent } from './components/move-preview/move-preview.component';
+import { TransferFundComponent } from './components/transfer-fund/transfer-fund.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,10 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
     AppHeaderComponent,
     ContactEditComponent,
     FilterArrPipe,
-    SignupPageComponent
+    SignupPageComponent,
+    MoveListComponent,
+    MovePreviewComponent,
+    TransferFundComponent
   ],
   imports: [
     BrowserModule,
