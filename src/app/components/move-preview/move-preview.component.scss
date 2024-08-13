@@ -1,0 +1,22 @@
+@import "../../../assets/scss/setup/vars";
+
+.move-preview {
+  gap: 0.5em;
+  padding: 2em;
+  border-radius: 16px;
+
+  font-family: FigtreeBold;
+  background-color: $contact-bg-clr;
+
+  .move-to {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.6em;
+
+    span {
+      font-family: $main-font-family;
+    }
+  }
+}

@@ -31,6 +31,18 @@
           alt="Contact picture"
           class="contact-img"
         />
+        <div class="funds-container flex column align-center">
+          <transfer-fund
+            (addMove)="onAddMove($event)"
+            [contact]="contact"
+          ></transfer-fund>
+    
+          <move-list
+            [moves]="user.moves | filterArr : 'toId' : contact._id"
+            [contact]="contact"
+            title="Your transfers to {{ contact.name }}"
+          ></move-list>
+        </div>
       </div>
     </div>
   </section>

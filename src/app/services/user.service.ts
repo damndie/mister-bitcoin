@@ -38,6 +38,21 @@ export class UserService {
     return this._loggedInUser
   }
 
+  public updateUser(updatedUser: User) {
+    
+    const users = this._users$.value.map(user =>
+      user._id === updatedUser._id ? updatedUser : user
+    )
+    
+    this._users$.next(users)
+    
+    localStorage.setItem(ENTITY, JSON.stringify(users))
+    
+    if (this._loggedInUser._id === updatedUser._id) {
+      this._setLoggedInUser(updatedUser)
+    }
+  }
+
   public signup(name: string) {
     const existingUser = this._users$.value.find(user => user.fullName === name)
 

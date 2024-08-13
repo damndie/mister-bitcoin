@@ -1,1 +1,24 @@
-<p>transfer-fund works!</p>
+<section class="transfer-fund flex justify-center">
+    <form
+      #fundForm="ngForm"
+      (ngSubmit)="onTransferCoins()"
+      class="flex column align-center"
+    >
+      <label>Transfer coins to {{ contact.name }}!</label>
+      <input
+        [(ngModel)]="amountToTransfer"
+        type="number"
+        name="amount"
+        id="amount"
+        class="input-amount"
+        placeholder="amount of coins"
+        min="0"
+        [max]="maxCoins"
+      />
+  
+      <span *ngIf="fundForm.invalid" class="invalid-amount-msg"
+        >You don't have enough coins!</span
+      >
+      <button class="btn-submit" [disabled]="fundForm.invalid">Transfer</button>
+    </form>
+  </section>

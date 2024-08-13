@@ -11,10 +11,18 @@
             💰 Your balance: <span>{{ user.coins | json }}</span>
         </p>
 
+        <button *ngIf="shouldShowRefillButton()" class="btn-refill" (click)="onRefillCoins()">Refill Coins</button>
+
         <p class="rate">
             📈 Current bitcoin rate: <span>{{ BTC$ | async }}</span>
         </p>
 
+        <move-list
+        *ngIf="user.moves.length"
+        [moves]="user.moves"
+        [contact]="null"
+        [title]="'Last Transactions:'"
+      ></move-list>
     </div>
 
 </section>

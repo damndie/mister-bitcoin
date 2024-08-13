@@ -1,1 +1,11 @@
-<p>move-preview works!</p>
+<article class="move-preview flex column">
+    <h3 *ngIf="!contact" class="move-to">
+        To: <span>{{ move.to }}</span>
+    </h3>
+    <p>
+        At: <span>{{ move.at | date : "d/M/yyyy, hh:mm a" }}</span>
+    </p>
+    <p>
+        Amount:<span> {{ move.amount }}</span>
+    </p>
+</article>

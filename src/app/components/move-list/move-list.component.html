@@ -1,1 +1,9 @@
-<p>move-list works!</p>
+<section *ngIf="moves.length" class="move-list-section">
+    <h2 class="list-heading">{{ title }}</h2>
+
+    <ul class="move-list flex column clean-list">
+        <li *ngFor="let move of moves">
+            <move-preview [move]="move" [contact]="contact"></move-preview>
+        </li>
+    </ul>
+</section>

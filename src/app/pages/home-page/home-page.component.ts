@@ -26,4 +26,13 @@ export class HomePageComponent implements OnInit {
     this.userService.logout()
     this.router.navigateByUrl('/signup')
   }
+
+  onRefillCoins() {
+    this.user.coins = 100;
+    this.userService.updateUser(this.user)
+  }
+
+  shouldShowRefillButton(): boolean {
+    return this.user.coins === 0
+  }
 }

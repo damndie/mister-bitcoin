@@ -1,0 +1,40 @@
+@import "../../../assets/scss/setup/vars";
+@import "../../../assets/scss/setup/mixins";
+
+.transfer-fund {
+  form {
+    width: 35vw;
+
+    label {
+      font-size: 2.2em;
+      font-family: FigtreeBold;
+      margin-block-end: 1rem;
+    }
+
+    .input-amount {
+      @include input;
+      width: 100%;
+      margin-block-end: 1em;
+    }
+
+    .btn-submit {
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+
+      font-size: 1.8em;
+      color: $main-bg-clr;
+      background-color: $active-link-clr;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+
+    .invalid-amount-msg {
+      font-size: 1.6em;
+      color: red;
+      margin-block-end: 1em;
+    }
+  }
+}
