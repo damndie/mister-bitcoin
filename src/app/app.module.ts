@@ -16,6 +16,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
 import { FormsModule } from '@angular/forms';
 import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FilterArrPipe } from './pipes/filter-arr.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ContactFilterComponent,
     ChartComponent,
     AppHeaderComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    FilterArrPipe
   ],
   imports: [
     BrowserModule,
