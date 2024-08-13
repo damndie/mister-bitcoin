@@ -37,8 +37,17 @@
       margin-block-end: 1rem;
     }
 
-    > span {
+    >span {
       font-family: $main-font-family;
     }
+  }
+
+  .btn-refill {
+    padding: 0.7em 1.4em;
+    border-radius: 8px;
+
+    font-family: FigtreeBold;
+    color: $main-bg-clr;
+    background-color: $active-link-clr;
   }
 }

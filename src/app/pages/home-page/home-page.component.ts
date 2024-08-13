@@ -28,11 +28,16 @@ export class HomePageComponent implements OnInit {
   }
 
   onRefillCoins() {
-    this.user.coins = 100;
+    this.user.coins = 100
     this.userService.updateUser(this.user)
+    this.updateBitcoinRate()
   }
 
   shouldShowRefillButton(): boolean {
     return this.user.coins === 0
+  }
+
+  private updateBitcoinRate() {
+    this.BTC$ = this.bitcoinService.getRate(this.user.coins)
   }
 }
